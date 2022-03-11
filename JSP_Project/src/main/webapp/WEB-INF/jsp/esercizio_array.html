@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		
+		<title>Prova webSevice</title>
+		
+		<style>
+			.container-txt
+			{
+				/* commneto signola e multiga */
+				text-align: center;
+				padding: 3px;
+			}
+			
+			.container-img
+			{
+				height: 200px;
+				width: 200px;
+			}		
+			
+			.container-img:hover{
+				cursor: pointer;
+				transition: 0.5s ease-in-out;
+				transform:rotate(360deg);
+			}
+		</style>
+		
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		
+		<script type = "text/javascript"> 
+		
+			let v = ["pomodori", "piselli", "peperoni", "funghi"];
+			
+			let p = [3.1, 2.5, 1.4, 4.7];
+			
+			$(document).ready(function(){
+			
+				let t = "<table border='1'><tr>";
+				
+				for(i=0; i < v.length; i++)
+				{
+					t = t + "<td><img class='container-img' src = 'immagini/" + v[i] + ".jpg'></td>"; 
+				}
+				
+				t = t + "</tr><tr>";
+				
+				let totale = 0;
+				
+				for(k=0; k < p.length; k++)
+				{
+					t = t + "<td class='container-txt'>" + p[k] + " &euro;</td>";
+					totale += p[k];
+				}
+				
+				t = t + "</tr><tr><td class='container-txt' colspan = ' " + v.length + "'>TOTALE " + totale + " &euro;</td></tr></table>";
+				
+				// alert(t);
+				
+				$("#output").html(t);
+			
+			});
+			
+		</script>		
+		
+		
+	</head>
+	
+	<body>
+	
+		<div id=output></div>
+	
+	</body>
+
+</html>
